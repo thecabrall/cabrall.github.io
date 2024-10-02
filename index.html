@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Lucas Cabral</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #e6f7ff; /* Cor de fundo mais suave e alegre */
+            color: #8dd1ec; /* Texto escuro para melhor legibilidade */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(90deg, #5bc0de, #31b0d5); /* Cores suaves */
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2em;
+            margin: 10px 0 0;
+        }
+        .container {
+            width: 85%;
+            margin: 30px auto;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .profile img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid #1999DB;
+        }
+        .profile-info {
+            max-width: 600px;
+        }
+        .profile-info h1 {
+            font-size: 2.5em;
+            color: #1999DB;
+        }
+        .profile-info p {
+            font-size: 1.1em;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+        .skills, .experience, .education {
+            margin: 30px 0;
+        }
+        h2.section-title {
+            font-size: 2em;
+            color: #2c2c2c;
+            border-bottom: 2px solid #31b0d5;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #2c2c2c;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 5px solid #8f94fb;
+            box-shadow: 0 2px 5px white;
+            transition: transform 0.3s ease;
+            position: relative; /* Para o posicionamento do botão */
+        }
+        ul li:hover {
+            transform: translateX(10px);
+        }
+        footer {
+            background: #31b0d5;
+            text-align: center;
+            padding: 20px 0;
+            color: #fff;
+        }
+        a {
+            color: #0099ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .feito {
+            display: none;
+            margin-top: 10px;
+            background-color: #f3f3f3;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .feito p {
+            margin: 0;
+            color: #2c2c2c;
+        }
+        .button-container {
+            position: absolute; /* Posiciona o botão no canto direito */
+            right: 15px; /* Espaçamento à direita */
+            top: 15px; /* Espaçamento do topo */
+        }
+        .feito-button {
+            background: #0175b8;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .feito-button:hover {
+            background: #4e54c8;
+        }
+        .contact-button {
+            display: inline-block;
+            background: #0175b8;
+            color: #fff;
+            padding: 10px 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .contact-button:hover {
+            background: #4e54c8;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <section class="profile">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQEdftdMEdV3aQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1712020289261?e=1733356800&v=beta&t=sS3zMPKjXaJ-nhTyUtTUL3IXajdLvBMkaiXVVHmShNg" alt="Foto de Perfil">
+            <div class="profile-info">
+                <h1>Lucas Cabral Gonçalves Pereira</h1>
+                <p>Com sólida experiência em E-commerce e Marketing Digital, sou especialista em plataformas como Tray Corp, Magento e VTEX. Trabalho com grandes marketplaces como B2W, Mercado Livre e Amazon. Além disso, possuo habilidades em design gráfico, fotografia, criação de sites via WordPress, e programação em Python e HTML/CSS.</p>
+                <p><strong>Contato:</strong> <a href="mailto:contato.lucascabralgp@gmail.com">contato.lucascabralgp@gmail.com</a> | <strong>Telefone:</strong> <a href="tel:+5521976633727">(21) 97663-3727</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lucascabrall" target="_blank">linkedin.com/in/lucascabrall</a></p>
+            </div>
+        </section>
+
+        <section class="experience">
+            <h2 class="section-title">Principais Experiências Profissionais</h2>
+            <ul>
+                <li>
+                    <strong>Analista de E-commerce Pleno</strong> - Ramada Ferragens (fev 2024 - Presente)<br>
+                    Responsável pela otimização das plataformas de e-commerce e aumento de vendas.<br>
+                    <div class="button-container">
+                        <button class="feito-button" onclick="toggleFeitos('feito-ramada')">Conhecer Feitos</button>
+                    </div>
+                    <div id="feito-ramada" class="feito">
+                        <p>Liderança de equipe de 4 colaboradores, gestão de 3 ecommerces:</p>
+                        <ul>
+                            <li><strong>Obra & Lar (B2C)</strong> - Foco em materiais de construção e utilidades para casa, otimização da experiência de compra.</li>
+                            <li><strong>Ramada (B2B)</strong> - Criação e manutenção de leads, campanhas de e-mail marketing e estratégias de trade marketing.</li>
+                            <li><strong>Distribuidora de Tintas Coral (B2B)</strong> - Atendimento a revendedores e parceiros comerciais, alinhamento da marca Coral ao mercado.</li>
+                        </ul>
+                        <p>Envolvimento direto nas operações, otimizando processos e liderando inovação para superar metas e desafios.</p>
+                    </div>
+                </li>
+                <li>
+                    <strong>Analista de E-commerce</strong> - SuperComm (ago 2022 - ago 2023)<br>
+                    Gestão de marketplaces e criação de estratégias para expansão digital.<br>
+                    <div class="button-container">
+                        <button class="feito-button" onclick="toggleFeitos('feito-supercomm')">Conhecer Feitos</button>
+                    </div>
+                    <div id="feito-supercomm" class="feito">
+                        <p>Gerenciamento do fluxo de dois e-commerces:</p>
+                        <ul>
+                            <li><strong>Impressorajato.com.br</strong> - Focado em suprimentos e impressoras originais.</li>
+                            <li><strong>CartuchoNet.com.br</strong> - Especializado em suprimentos de impressão, originais e compatíveis.</li>
+                        </ul>
+                        <p>Principais responsabilidades:</p>
+                        <ul>
+                            <li>Atualização contínua dos anúncios e organização das vitrines dos sites.</li>
+                            <li>Análise do comportamento dos usuários para identificar tendências e ajustar estratégias.</li>
+                            <li>Participação nas campanhas de Black Friday e Natal, contribuindo para o maior faturamento do Impressora Ajato, resultado de planejamento meticuloso e acertos nas campanhas publicitárias.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <strong>Analista de E-commerce</strong> - Censura 18 (jan 2020 - ago 2022)<br>
+                    Responsável pela estruturação e crescimento do e-commerce da empresa.<br>
+                    <div class="button-container">
+                        <button class="feito-button" onclick="toggleFeitos('feito-censura')">Conhecer Feitos</button>
+                    </div>
+                    <div id="feito-censura" class="feito">
+                        <p>Liderança na transformação digital de marcas tradicionais:</p>
+                        <ul>
+                            <li><strong>Censura18</strong> - Focada no público streetwear e adulto.</li>
+                            <li><strong>Rosalem Kids</strong> - Voltada para infanto-juvenis e recém-nascidos.</li>
+                        </ul>
+                        <p>Principais realizações:</p>
+                        <ul>
+                            <li>Implementação de dois sites de e-commerce em 2 meses, após intensa colaboração entre logística, marketing, compras e desenvolvimento.</li>
+                            <li>Lançamento bem-sucedido com faturamento superior a 40 mil reais em cada e-commerce após campanha de lançamento nas lojas físicas.</li>
+                            <li>Aprendizado sobre a importância da colaboração, inovação e compreensão do comportamento do consumidor no ambiente digital.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <strong>Analista de Marketing Digital</strong> - Widi Care (mar 2018 - dez 2020)<br>
+                    Desenvolvimento de campanhas de marketing digital e SEO.<br>
+                    <div class="button-container">
+                        <button class="feito-button" onclick="toggleFeitos('feito-widi')">Conhecer Feitos</button>
+                    </div>
+                    <div id="feito-widi" class="feito">
+                        <p>Principais responsabilidades e realizações:</p>
+                        <ul>
+                            <li>Garantir a eficiência de indexação do site e a estruturação da loja virtual.</li>
+                            <li>Implementação de estratégias eficazes de e-mail marketing e otimização de SEO.</li>
+                            <li>Gerenciamento de anúncios no Google Ads para maximizar visibilidade e vendas.</li>
+                            <li>Participação no lançamento da linha de produtos JUBA, criando uma estratégia robusta em colaboração com a equipe de marketing e vendas.</li>
+                            <li>Estabelecimento de recordes em vendas, unindo a estrutura da loja virtual com campanhas eficazes.</li>
+                        </ul>
+                        <p>Busca constante por inovações que aprimorem a experiência do cliente e otimizem os resultados da empresa.</p>
+                    </div>
+                </li>
+            </ul>
+            <a href="https://wa.me/55021976633727?text=Olá%20Lucas,%20gostaria%20de%20saber%20mais%20sobre%20suas%20experiências%20profissionais" class="contact-button">Conhecer mais Experiências</a>
+        </section>
+
+        <section class="education">
+            <h2 class="section-title">Formação Acadêmica</h2>
+            <ul>
+                <li><strong>MBA em Gestão, Empreendedorismo & Marketing</strong> - PUC-RS (2019 - 2021)</li>
+                <li><strong>Bacharelado em Publicidade & Propaganda</strong> - Estácio (2015 - 2018)</li>
+                <li><strong>Extensão em Mentalidade de Desenvolvimento Contínuo</strong> - PUC-RS (2021)</li>
+            </ul>
+        </section>
+
+        <section class="skills">
+            <h2 class="section-title">Principais Competências</h2>
+            <ul>
+                <li>Plataformas de E-commerce (Tray Corp, Magento, VTEX)</li>
+                <li>Marketplaces (B2W, Via Varejo, Mercado Livre, Amazon, Magalu)</li>
+                <li>SEO / SEM</li>
+                <li>Design Gráfico (Photoshop, Illustrator, InDesign)</li>
+                <li>Desenvolvimento Web (HTML, CSS, WordPress)</li>
+                <li>Marketing Digital (Google Ads, Meta Ads, TikTok Ads)</li>
+                <li>Fotografia e Edição de Vídeos</li>
+                <li>Programação em Python</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Lucas Cabral Gonçalves Pereira - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para mostrar ou esconder os feitos da experiência
+        function toggleFeitos(id) {
+            const feitos = document.getElementById(id);
+            if (feitos.style.display === "none" || feitos.style.display === "") {
+                feitos.style.display = "block";
+            } else {
+                feitos.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
