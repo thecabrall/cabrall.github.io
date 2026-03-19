@@ -1,412 +1,706 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Lucas Cabral</title>
+    <title>Lucas Cabral - Portfólio & Currículo</title>
     <style>
-        /* Importando a fonte Montserrat */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+        /* Paleta de Cores Confortável e Neon Suave */
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --neon-cyan: #06b6d4;
+            --neon-purple: #c084fc;
+            --neon-green: #10b981;
+
+            /* Cores Temáticas */
+            --google-blue: #4285F4;
+            --google-red: #DB4437;
+            --google-yellow: #F4B400;
+            --google-green: #0F9D58;
+            --mercado-livre: #FFE600;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: #f4f7fc;
-            color: #333;
-            margin: 0;
-            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 16px;
         }
+
+        /* Efeitos Neon Base */
+        .neon-border {
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .neon-border:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4),
+                inset 0 0 10px rgba(6, 182, 212, 0.1);
+        }
+
+        .neon-text-purple {
+            color: var(--neon-purple);
+            text-shadow: 0 0 8px rgba(192, 132, 252, 0.4);
+        }
+
+        .neon-text-cyan {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 8px rgba(6, 182, 212, 0.4);
+        }
+
+        /* Estrutura Principal - Responsiva */
         header {
-            background: linear-gradient(90deg, #0078A8, #005F7F);
-            color: #fff;
-            padding: 50px 0;
             text-align: center;
+            padding: 4rem 1rem 3rem;
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 1) 100%);
+            border-bottom: 2px solid var(--neon-purple);
+            box-shadow: 0 5px 20px rgba(192, 132, 252, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+            margin-bottom: 1.5rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(192, 132, 252, 0.8);
+            border-color: var(--neon-purple);
+        }
+
         header h1 {
-            font-size: 3em;
-            margin: 0;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
         }
-        header p {
-            font-size: 1.2em;
-            margin: 10px 0 0;
+
+        header h2 {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
+
         .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 30px auto;
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
-        .profile {
+
+        @media (min-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+
+            header h2 {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr 2fr;
+                margin: 3rem auto;
+                gap: 2rem;
+            }
+        }
+
+        /* Cartões */
+        .card {
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+            opacity: 0.5;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+            border-bottom: 1px dashed var(--neon-cyan);
+            padding-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        /* Contato */
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            flex-wrap: wrap;
+            gap: 10px;
+            word-break: break-all;
         }
-        .profile img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid #0078A8;
-            margin-bottom: 20px;
-        }
-        .profile-info {
-            text-align: center;
-            max-width: 600px;
-        }
-        .profile-info h1 {
-            font-size: 2.5em;
-            color: #0078A8;
-        }
-        .profile-info p {
-            font-size: 1.1em;
-            margin-top: 10px;
-            line-height: 1.6;
-        }
-        h2.section-title {
-            font-size: 2em;
-            color: #0078A8;
-            border-bottom: 2px solid #0078A8;
-            padding-bottom: 10px;
-            margin-top: 50px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            background: #fff;
-            margin-bottom: 15px;
-            padding: 15px;
-            border-left: 5px solid #0078A8;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        ul li:hover {
-            transform: translateX(10px);
-        }
-        .feito {
-            display: none;
-            margin-top: 10px;
-            background-color: #e9ecef;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .feito p {
-            margin: 0;
-            color: #0078A8;
-        }
-        .button-container {
-            display: flex;
-            justify-content: flex-end;
-        }
-        .feito-button {
-            background: #0078A8;
-            color: #fff;
-            padding: 10px 15px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-        }
-        .feito-button:hover {
-            background: #005F7F;
-        }
-        .contact-button {
-            display: inline-block;
-            background: #0078A8;
-            color: #fff;
-            padding: 10px 15px;
-            margin-top: 20px;
-            border-radius: 5px;
+
+        .contact-list a {
+            color: var(--text-main);
             text-decoration: none;
-            text-align: center;
+            transition: color 0.3s ease;
         }
-        .contact-button:hover {
-            background: #005F7F;
+
+        .contact-list a:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 5px rgba(6, 182, 212, 0.5);
         }
-        footer {
-            background: #0078A8;
-            text-align: center;
-            padding: 20px 0;
+
+        /* Skills/Competências com HOVER RESTAURADO */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-tag {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            color: var(--text-main);
+            padding: 0.4rem 0.8rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: rgba(192, 132, 252, 0.15);
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 12px rgba(192, 132, 252, 0.5);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        @media (min-width: 768px) {
+            .skills-container {
+                gap: 0.8rem;
+            }
+
+            .skill-tag {
+                font-size: 0.85rem;
+                padding: 0.4rem 1rem;
+            }
+        }
+
+        /* Certificações em Labels Minimalistas - Temáticas */
+        .cert-labels-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .cert-label {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(30, 41, 59, 0.5);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            box-shadow: 0 0 5px rgba(6, 182, 212, 0.1);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        /* Hover das labels normais */
+        .cert-label:hover {
+            background: rgba(6, 182, 212, 0.2);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
+            transform: translateY(-2px);
             color: #fff;
         }
 
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .profile {
-                flex-direction: column;
-                text-align: center;
-            }
-            .profile-info {
-                text-align: center;
+        /* Estilos Temáticos das Bordas das Certificações */
+        .cert-label.cert-google {
+            border-image: linear-gradient(to right, var(--google-blue), var(--google-red), var(--google-yellow), var(--google-green)) 1;
+            border-style: solid;
+            border-width: 1px;
+            box-shadow: 0 0 8px rgba(66, 133, 244, 0.3);
+        }
+
+        .cert-label.cert-mercado-livre {
+            border-color: var(--mercado-livre);
+            box-shadow: 0 0 8px rgba(255, 230, 0, 0.3);
+            color: #fff;
+        }
+
+        /* Ajuste de hover para manter o tema */
+        .cert-label.cert-google:hover {
+            box-shadow: 0 0 15px rgba(219, 68, 55, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .cert-label.cert-mercado-livre:hover {
+            box-shadow: 0 0 15px rgba(255, 230, 0, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Timeline (Experiência e Formação) */
+        .timeline {
+            border-left: 2px solid rgba(6, 182, 212, 0.2);
+            padding-left: 1rem;
+            margin-left: 0.2rem;
+        }
+
+        @media (min-width: 768px) {
+            .timeline {
+                padding-left: 1.5rem;
+                margin-left: 0.5rem;
             }
         }
 
-.certifications {
-    background: #fff;
-    border: 2px solid #0078A8;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 30px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 100%; /* Garante que a seção não ultrapasse a largura da tela */
-    box-sizing: border-box; /* Inclui padding e borda no cálculo do tamanho total */
-}
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
 
-.certification-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
+        @media (min-width: 768px) {
+            .timeline-item {
+                margin-bottom: 2.5rem;
+            }
+        }
 
-.certification-item {
-    text-align: center;
-    flex: 1 1 15%; /* Os itens ocupam até 30% do container, ajustando automaticamente o tamanho */
-    box-sizing: border-box; /* Garante que padding/borda sejam incluídos no tamanho total do item */
-    min-width: 150px;
-}
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.45rem;
+            top: 0.3rem;
+            width: 10px;
+            height: 10px;
+            background-color: var(--bg-dark);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--neon-cyan);
+            transition: all 0.3s ease;
+        }
 
-.certification-item img {
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    margin: 0 auto;
-}
+        @media (min-width: 768px) {
+            .timeline-item::before {
+                left: -1.9rem;
+                width: 12px;
+                height: 12px;
+            }
+        }
 
-.certification-item p {
-    font-size: 1.2em;
-    color: #333;
-    margin-top: 10px;
-}
+        .timeline-item:hover::before {
+            background-color: var(--neon-cyan);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
 
-/* Media queries para dispositivos menores */
-@media (max-width: 768px) {
-    .certification-container {
-        justify-content: center; /* Centraliza os selos */
-    }
+        .timeline-item h4 {
+            font-size: 1.05rem;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
 
-    .certification-item {
-        flex: 1 1 45%; /* Cada selo ocupa 45% da largura */
-    }
-}
+        .timeline-item .company {
+            color: var(--neon-purple);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
 
-@media (max-width: 480px) {
-    .certification-container {
-        justify-content: center;
-    }
+        .timeline-item .date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
 
-    .certification-item {
-        flex: 1 1 100%; /* Ocupa 100% da largura em dispositivos móveis */
-    }
+        @media (min-width: 768px) {
+            .timeline-item h4 {
+                font-size: 1.15rem;
+            }
 
-    .certification-item img {
-        width: 80px;
-        height: 80px;
-    }
+            .timeline-item .company {
+                font-size: 0.95rem;
+            }
 
-    .certification-item p {
-        font-size: 1em;
-    }
-}
+            .timeline-item .date {
+                font-size: 0.85rem;
+            }
+        }
 
+        /* Acordeão de Feitos (Expandir/Ocultar) - HOVER RESTAURADO */
+        .btn-feitos {
+            background: transparent;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
+        .btn-feitos:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-dark);
+            box-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .feitos-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.5s ease;
+            opacity: 0;
+            margin-top: 0rem;
+            padding-left: 0.5rem;
+            border-left: 1px dashed rgba(192, 132, 252, 0.4);
+        }
+
+        @media (min-width: 768px) {
+            .feitos-content {
+                padding-left: 1rem;
+            }
+        }
+
+        .feitos-content.open {
+            opacity: 1;
+            margin-top: 1rem;
+        }
+
+        .feitos-content ul {
+            list-style-type: square;
+            padding-left: 1rem;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .feitos-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Botão WhatsApp - HOVER RESTAURADO */
+        .btn-wpp {
+            display: inline-block;
+            margin-top: 1.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 0.7rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-wpp:hover {
+            background: var(--neon-green);
+            color: #fff;
+            box-shadow: 0 0 15px var(--neon-green);
+            transform: translateY(-3px);
+        }
+
+        @media (min-width: 768px) {
+            .btn-wpp {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                margin-top: 2rem;
+            }
+        }
+
+        /* Efeitos de Animação com JS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Lucas Cabral</h1>
-        <p>Especialista em E-commerce | Growth Marketer | PHP | Python | CRO </p>
+    <header class="reveal">
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQH6Lvj1uUS3Lg/profile-displayphoto-scale_400_400/B4DZmGaJf0GsAg-/0/1758896626404?e=1775692800&v=beta&t=IfHaD_QNTdw3ySsnZd0R3Y2mW_N94EriBZDxHeTSjqs"
+            alt="Lucas Cabral" class="profile-pic">
+        <h1 class="neon-text-cyan">Lucas Cabral</h1>
+        <h2>Especialista em E-commerce | Growth Marketer | CRO Analyst | PHP | Python</h2>
+        <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">Mesquita, Rio de Janeiro, Brasil</p>
     </header>
 
     <div class="container">
-        <section class="profile">
-            <img src="https://media.licdn.com/dms/image/v2/D4D03AQH6Lvj1uUS3Lg/profile-displayphoto-crop_800_800/B4DZmGaJf0GsAI-/0/1758896626067?e=1762387200&v=beta&t=UZeSCbkVQBjTt88aQVbWXT14-kqyZaB8MgGr0YF2L9Q" alt="Foto de Perfil">
-            <div class="profile-info">
-                <h1>Lucas Cabral Gonçalves Pereira</h1>
-                <p>Com sólida experiência em E-commerce e Marketing Digital, sou especialista em plataformas como Tray Corp, Magento e VTEX. Trabalho com grandes marketplaces como B2W, Mercado Livre e Amazon. Além disso, possuo habilidades em design gráfico, fotografia, criação de sites via WordPress, e programação em Python e HTML/CSS.</p>
-                <p><strong>Contato:</strong> <a href="mailto:contato.lucascabralgp@gmail.com">contato.lucascabralgp@gmail.com</a> |<br> <strong>Telefone:</strong> <a href="tel:+5521976633727">(21) 97663-3727</a></p>
-                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lucascabrall" target="_blank">linkedin.com/in/lucascabrall</a></p>
+        <aside>
+            <div class="card neon-border reveal">
+                <h3 class="neon-text-purple">Contato</h3>
+                <ul class="contact-list">
+                    <li>📍 Rua Zeferino, 940</li>
+                    <li>📱 <a href="tel:+5521976633727">(21) 97663-3727</a></li>
+                    <li>✉️ <a href="mailto:contato.lucascabralgp@gmail.com">contato.lucascabralgp@gmail.com</a></li>
+                    <li>🔗 <a href="https://www.linkedin.com/in/lucascabrall" target="_blank">LinkedIn</a></li>
+                </ul>
             </div>
-        </section>
 
-        <section class="experience">
-            <h2 class="section-title">Principais Experiências Profissionais</h2>
-            <ul>
-                <li>
-                        <strong>Analista de CRO - Pleno</strong> - Agência Híbrido (Jan 2025 - Presente)<br>
-                    Responsável pela otimização de conversão de e-commerce e aumento de vendas.<br>
-                    <div class="button-container">
-                        <button class="feito-button" onclick="toggleFeitos('feito-ramada')">Conhecer Feitos</button>
-                    </div>
-                    <div id="feito-ramada" class="feito">
-                        <p>Experiência em ferramentas de desempenho:</p>
-                        <ul>
-                            <li><strong>LookerStudio</strong> - Elaboração de Dashboard BI para acompanhamento e análise de KPI's</li>
-                            <li><strong>VWO</strong> - Estruturação de mapa de Calor e Testes A/B</li>
-                            <li><strong>HotJar</strong> - Análise e estruturação de Jornada com Mapas de Calor e Mecâncias de Anti Abandono</li>
-                        </ul>
-                        <p>Reestruturando novas jornadas, aprimorando a experiência do usuário e otimizando a conversão final</p>
-                    </div>
-                </li>
-                
-                <li>
-                    <strong>Analista de E-commerce Pleno</strong> - Ramada Ferragens (Jan 2024 - Dez 2024)<br>
-                    Responsável pela otimização das plataformas de e-commerce e aumento de vendas.<br>
-                    <div class="button-container">
-                        <button class="feito-button" onclick="toggleFeitos('feito-ramada')">Conhecer Feitos</button>
-                    </div>
-                    <div id="feito-ramada" class="feito">
-                        <p>Liderança de equipe de 4 colaboradores, gestão de 3 ecommerces:</p>
-                        <ul>
-                            <li><strong>Obra & Lar (B2C)</strong> - Foco em materiais de construção e utilidades para casa, otimização da experiência de compra.</li>
-                            <li><strong>Ramada (B2B)</strong> - Criação e manutenção de leads, campanhas de e-mail marketing e estratégias de trade marketing.</li>
-                            <li><strong>Distribuidora de Tintas Coral (B2B)</strong> - Atendimento a revendedores e parceiros comerciais, alinhamento da marca Coral ao mercado.</li>
-                        </ul>
-                        <p>Envolvimento direto nas operações, otimizando processos e liderando inovação para superar metas e desafios.</p>
-                    </div>
-                </li>
-                <li>
-                    <strong>Analista de E-commerce</strong> - SuperComm (ago 2022 - ago 2023)<br>
-                    Gestão de marketplaces e criação de estratégias para expansão digital.<br>
-                    <div class="button-container">
-                        <button class="feito-button" onclick="toggleFeitos('feito-supercomm')">Conhecer Feitos</button>
-                    </div>
-                    <div id="feito-supercomm" class="feito">
-                        <p>Gerenciamento do fluxo de dois e-commerces:</p>
-                        <ul>
-                            <li><strong>Impressorajato.com.br</strong> - Focado em suprimentos e impressoras originais.</li>
-                            <li><strong>CartuchoNet.com.br</strong> - Especializado em suprimentos de impressão, originais e compatíveis.</li>
-                        </ul>
-                        <p>Principais responsabilidades:</p>
-                        <ul>
-                            <li>Atualização contínua dos anúncios e organização das vitrines dos sites.</li>
-                            <li>Análise do comportamento dos usuários para identificar tendências e ajustar estratégias.</li>
-                            <li>Participação nas campanhas de Black Friday e Natal, contribuindo para o maior faturamento do Impressora Ajato, resultado de planejamento meticuloso e acertos nas campanhas publicitárias.</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <strong>Analista de E-commerce</strong> - Censura 18 (jan 2020 - ago 2022)<br>
-                    Responsável pela estruturação e crescimento do e-commerce da empresa.<br>
-                    <div class="button-container">
-                        <button class="feito-button" onclick="toggleFeitos('feito-censura')">Conhecer Feitos</button>
-                    </div>
-                    <div id="feito-censura" class="feito">
-                        <p>Liderança na transformação digital de marcas tradicionais:</p>
-                        <ul>
-                            <li><strong>Censura18</strong> - Focada no público streetwear e adulto.</li>
-                            <li><strong>Rosalem Kids</strong> - Voltada para infanto-juvenis e recém-nascidos.</li>
-                        </ul>
-                        <p>Principais realizações:</p>
-                        <ul>
-                            <li>Implementação de dois sites de e-commerce em 2 meses, após intensa colaboração entre logística, marketing, compras e desenvolvimento.</li>
-                            <li>Lançamento bem-sucedido com faturamento superior a 40 mil reais em cada e-commerce após campanha de lançamento nas lojas físicas.</li>
-                            <li>Aprendizado sobre a importância da colaboração, inovação e compreensão do comportamento do consumidor no ambiente digital.</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <strong>Analista de Marketing Digital</strong> - Widi Care (mar 2018 - dez 2020)<br>
-                    Desenvolvimento de campanhas de marketing digital e SEO.<br>
-                    <div class="button-container">
-                        <button class="feito-button" onclick="toggleFeitos('feito-widi')">Conhecer Feitos</button>
-                    </div>
-                    <div id="feito-widi" class="feito">
-                        <p>Principais responsabilidades e realizações:</p>
-                        <ul>
-                            <li>Garantir a eficiência de indexação do site e a estruturação da loja virtual.</li>
-                            <li>Implementação de estratégias eficazes de e-mail marketing e otimização de SEO.</li>
-                            <li>Gerenciamento de anúncios no Google Ads para maximizar visibilidade e vendas.</li>
-                            <li>Participação no lançamento da linha de produtos JUBA, criando uma estratégia robusta em colaboração com a equipe de marketing e vendas.</li>
-                            <li>Estabelecimento de recordes em vendas, unindo a estrutura da loja virtual com campanhas eficazes.</li>
-                        </ul>
-                        <p>Busca constante por inovações que aprimorem a experiência do cliente e otimizem os resultados da empresa.</p>
-                    </div>
-                </li>
-            </ul>
-            <a href="https://wa.me/55021976633727?text=Olá%20Lucas,%20gostaria%20de%20saber%20mais%20sobre%20suas%20experiências%20profissionais" class="contact-button">Conhecer mais Experiências</a>
-        </section>
-
-        <section class="education">
-            <h2 class="section-title">Formação Acadêmica</h2>
-            <ul>
-                <li><strong>MBA em Gestão, Empreendedorismo & Marketing</strong> - PUC-RS (2019 - 2021)</li>
-                <li><strong>Bacharelado em Publicidade & Propaganda</strong> - Estácio (2015 - 2018)</li>
-                <li><strong>Extensão em Mentalidade de Desenvolvimento Contínuo</strong> - PUC-RS (2021)</li>
-            </ul>
-        </section>
-
-        <section class="skills">
-            <h2 class="section-title">Principais Competências</h2>
-            <ul>
-                <li>Marketplaces (B2W, Via Varejo, Mercado Livre, Amazon, Magalu)</li>
-                <li>Plataformas de E-commerce (Tray, Magento, Loja Integrada)</li>
-                <li>Marketing Digital Ads (Google Ads, Meta Ads, TikTok Ads)</li>
-                <li>Análise de Dados com Google Analytics e LookerStudio</li>
-                <li>Design Gráfico (Photoshop, Illustrator, InDesign)</li>
-                <li>Desenvolvimento Web (HTML, CSS, WordPress)</li>
-                <li>Experiência com MailChimp / Zenvia</li>
-                <li>Fotografia e Edição de Vídeos</li>
-                <li>Experiência com SQL(Básico)</li>
-                <li>Desenvolvimento em Python</li>
-                <li>Desenvolvimento em PHP</li>
-                <li>Experiência com Logística</li>
-                <li>Experiência com Django</li>
-                <li>SEO / SEM</li>
-            </ul>
-        </section>
-        
-        <section class="certifications">
-            <h2>Principais Certificações</h2>
-            <div class="certification-container">
-                <div class="certification-item">
-                    <a href="https://academy.mercadoads.com/student/award/92VDLVPW7WQF569UQcw4vCL9" target="_blank"><img src="https://github.com/thecabrall/cabrall.github.io/blob/main/product-ads-certificado.png?raw=true" alt="Certificação 1"></a>
-                    <p>Certificado<br> Product Ads <br>Mercado Livre<br>(Concluído)</p>
-                </div>
-                <div class="certification-item">
-                    <a href="https://skillshop.credential.net/3bb7981b-2213-4243-bdd3-d1ffba08d064" target="_blank"><img src="https://github.com/thecabrall/cabrall.github.io/blob/main/skill-google-1.png?raw=true" alt="Certificação 2"></a>
-                    <p>Certificado<br> Brand Ads <br>Métricas do Google Ads<br>(Concluído)</p>
-                </div>
-                <!--
-                <div class="certification-item">
-                    <a href=""><img src="https://github.com/thecabrall/cabrall.github.io/blob/main/certificado-displayads-beg-andamento.png?raw=true" alt="Certificação 3"></a>
-                    <p>Certificado<br> Display Ads Beginners <br>Mercado Livre<br>(Em Andamento)</p>
-                </div>
-                <div class="certification-item">
-                    <a href=""><img src="https://github.com/thecabrall/cabrall.github.io/blob/main/certificado-displayads-advanced-andamento.png?raw=true" alt="Certificação 4"></a>
-                    <p>Certificado<br> Display Ads Advanced <br>Mercado Livre<br>(Em Andamento)</p>
+            <div class="card neon-border reveal">
+                <h3 class="neon-text-purple">Competências</h3>
+                <div class="skills-container">
+                    <span class="skill-tag">Marketplaces (B2W, MELI, Amazon)</span>
+                    <span class="skill-tag">Plataformas (Tray, Magento, VTEX)</span>
+                    <span class="skill-tag">Google Ads & Meta Ads</span>
+                    <span class="skill-tag">Análise de Dados</span>
+                    <span class="skill-tag">VWO & HotJar</span>
+                    <span class="skill-tag">Looker Studio</span>
+                    <span class="skill-tag">Growth Marketing</span>
+                    <span class="skill-tag">Google Analytics</span>
+                    <span class="skill-tag">Laravel & PHP</span>
+                    <span class="skill-tag">Python & Django</span>
+                    <span class="skill-tag">HTML/CSS & WordPress</span>
+                    <span class="skill-tag">Design Gráfico & Fotografia</span>
+                    <span class="skill-tag">SEO / SEM</span>
                 </div>
             </div>
-        </section>
-       
+
+            <div class="card neon-border reveal">
+                <h3 class="neon-text-purple">Formação Acadêmica</h3>
+                <div class="timeline" style="margin-top: 1rem;">
+                    <div class="timeline-item">
+                        <h4>Análise e Desenv. de Sistemas</h4>
+                        <div class="company">Centro Universitário FAM</div>
+                        <div class="date">Dez 2024 - Dez 2026</div>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>MBA em Gestão e Marketing</h4>
+                        <div class="company">PUCRS</div>
+                        <div class="date">Jan 2019 - Dez 2021</div>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Extensão, Desenvolvimento Contínuo</h4>
+                        <div class="company">PUCRS</div>
+                        <div class="date">Jan 2021 - Mar 2021</div>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Publicidade & Propaganda</h4>
+                        <div class="company">Estácio</div>
+                        <div class="date">Jan 2015 - Dez 2018</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <div class="card neon-border reveal">
+                <h3 class="neon-text-cyan">Resumo Profissional</h3>
+                <div class="summary-text" style="color: #cbd5e1; text-align: justify; font-size: 0.95rem;">
+                    <p>Com sólida experiência em E-commerce e Marketing Digital, sou especialista em plataformas como
+                        Tray Corp, Magento e VTEX, atuando também com grandes marketplaces como B2W, Mercado Livre e
+                        Amazon.</p>
+                    <p style="margin-top: 1rem;">Combino expertise técnica com visão estratégica para desenvolver
+                        soluções digitais de alto impacto. No marketing digital, aplico metodologias de Growth Marketing
+                        e ferramentas avançadas de CRO (VWO, HotJar, Looker Studio) para reestruturar jornadas e
+                        transformar dados em insights acionáveis, otimizando a conversão final.</p>
+                </div>
+            </div>
+
+            <div class="card neon-border reveal">
+                <h3 class="neon-text-cyan">Experiência Profissional</h3>
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <h4>Analista de CRO - Pleno</h4>
+                        <div class="company">Híbrido a Smollan company | Rio de Janeiro</div>
+                        <div class="date">Jan 2025 - Presente</div>
+                        <button class="btn-feitos" onclick="toggleFeitos(this)">Conhecer Feitos</button>
+                        <div class="feitos-content">
+                            <ul>
+                                <li><strong>LookerStudio:</strong> Elaboração de Dashboard BI para análise de KPIs.</li>
+                                <li><strong>VWO:</strong> Estruturação de testes A/B e personalização.</li>
+                                <li><strong>HotJar:</strong> Análise de jornada, mapas de calor e mecânicas
+                                    anti-abandono.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Analista de E-commerce Pleno</h4>
+                        <div class="company">Ramada Ferragens</div>
+                        <div class="date">Fev 2024 - Jan 2025</div>
+                        <button class="btn-feitos" onclick="toggleFeitos(this)">Conhecer Feitos</button>
+                        <div class="feitos-content">
+                            <ul>
+                                <li><strong>Obra & Lar (B2C):</strong> Otimização da experiência de compra.</li>
+                                <li><strong>Ramada (B2B):</strong> Estratégias de trade marketing e e-mail marketing.
+                                </li>
+                                <li><strong>Distribuidora Coral (B2B):</strong> Atendimento a revendedores e alinhamento
+                                    da marca no mercado.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Analista de E-commerce</h4>
+                        <div class="company">SuperComm</div>
+                        <div class="date">Ago 2022 - Ago 2023</div>
+                        <button class="btn-feitos" onclick="toggleFeitos(this)">Conhecer Feitos</button>
+                        <div class="feitos-content">
+                            <ul>
+                                <li>Análise de comportamento dos usuários para identificar tendências.</li>
+                                <li>Participação chave em campanhas de Black Friday e Natal.</li>
+                                <li>Contribuição direta para o maior faturamento histórico das lojas através de
+                                    planejamento estratégico.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Analista de CRO & E-commerce</h4>
+                        <div class="company">Censura 18</div>
+                        <div class="date">Jan 2020 - Ago 2022</div>
+                        <button class="btn-feitos" onclick="toggleFeitos(this)">Conhecer Feitos</button>
+                        <div class="feitos-content">
+                            <ul>
+                                <li>Implementação de dois sites de e-commerce em tempo recorde (2 meses).</li>
+                                <li>Lançamento bem-sucedido com faturamento inicial expressivo após campanha omnichanel.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Analista de Marketing Digital</h4>
+                        <div class="company">Widi Care</div>
+                        <div class="date">Mar 2018 - Dez 2020</div>
+                        <button class="btn-feitos" onclick="toggleFeitos(this)">Conhecer Feitos</button>
+                        <div class="feitos-content">
+                            <ul>
+                                <li>Otimização de SEO, estruturação de loja virtual e indexação.</li>
+                                <li>Gestão de Google Ads, Meta Ads e automação de E-mail Marketing.</li>
+                                <li>Participação estratégica no lançamento da linha de produtos JUBA, estabelecendo
+                                    recordes de vendas.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Analista de E-commerce Junior</h4>
+                        <div class="company">Casa & Lazer</div>
+                        <div class="date">Fev 2016 - Out 2018</div>
+                    </div>
+
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="https://wa.me/55021976633727?text=Olá%20Lucas,%20gostaria%20de%20saber%20mais%20sobre%20suas%20experiências%20profissionais"
+                        target="_blank" class="btn-wpp">💬 Ver Mais Experiências</a>
+                </div>
+            </div>
+
+            <div class="card neon-border reveal">
+                <h3 class="neon-text-cyan">Certificações em Destaque</h3>
+                <div class="cert-labels-container">
+                    <span class="cert-label cert-mercado-livre">
+                        Product Ads - Mercado Livre
+                    </span>
+                    <span class="cert-label cert-google">
+                        Métricas Brand Ads - Google
+                    </span>
+                    <span class="cert-label">Introdução ao Machine Learning</span>
+                    <span class="cert-label">Programação, Computadores e Internet</span>
+                    <span class="cert-label">Machine Learning com Baires Dev</span>
+                </div>
+            </div>
+        </main>
     </div>
 
-
-        <br>
-        <br>
-        <br>
-        <br>
-    <footer>
-        <p>&copy; 2024 Lucas Cabral Gonçalves Pereira <br> Todos os direitos reservados.<br></p>
-    </footer>
- -->
     <script>
-        // Função para mostrar ou esconder os feitos da experiência
-        function toggleFeitos(id) {
-            const feitos = document.getElementById(id);
-            if (feitos.style.display === "none" || feitos.style.display === "") {
-                feitos.style.display = "block";
+        // Efeito de rolagem Fade/Reveal
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 80;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
+
+        // Função do Acordeão (Conhecer Feitos)
+        function toggleFeitos(btn) {
+            const content = btn.nextElementSibling;
+            content.classList.toggle('open');
+
+            if (content.classList.contains('open')) {
+                btn.textContent = "Ocultar Feitos";
+                content.style.maxHeight = content.scrollHeight + "px";
             } else {
-                feitos.style.display = "none";
+                btn.textContent = "Conhecer Feitos";
+                content.style.maxHeight = null;
             }
         }
     </script>
-
 </body>
+
 </html>
